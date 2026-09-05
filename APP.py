@@ -1,24 +1,26 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
-import sqlite3
+import sqlite3 as s
 
 app = Flask(__name__)
 
-# Create database and table
 def init_db():
-    conn = sqlite3.connect("notes.db")
+    conn = s.connect("notes.db")
     c = conn.cursor()
     c.execute("""
         CREATE TABLE IF NOT EXISTS notes (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            Sno. INTEGER PRIMARY KEY AUTOINCREMENT,
             content TEXT NOT NULL
         )
     """)
+
     conn.commit()
     conn.close()
 
 @app.route("/", methods=["GET", "POST"])
+
 def index():
-    conn = sqlite3.connect("notes.db")
+    conn = s.connect("notes.db")
     c = conn.cursor()
 
     if request.method == "POST":
@@ -35,7 +37,7 @@ def index():
 
 @app.route("/delete/<int:note_id>")
 def delete(note_id):
-    conn = sqlite3.connect("notes.db")
+    conn = s.connect("notes.db")
     c = conn.cursor()
     c.execute("DELETE FROM notes WHERE id = ?", (note_id,))
     conn.commit()
@@ -44,4 +46,4 @@ def delete(note_id):
 
 if __name__ == "__main__":
     init_db()
-    app.run(debug=True)
+    app.run(debug=False)
