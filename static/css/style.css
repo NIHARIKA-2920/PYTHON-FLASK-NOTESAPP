@@ -1,0 +1,27 @@
+/* this style sheet is PURELY superficial and is only meant to be a placeholder+testing ground */
+
+body {
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    align-items: center;
+    text-align: center;
+}
+
+/* custom classes and hovers */
+
+.grandparent {
+    color: x0f0;
+}
+
+.temp-intro {
+    color: rgb(255, 221, 0);
+    text-align: center;
+    font-size: 20px;
+}
+
+.temp-intro:hover {
+    transform: scale(1.2);
+}

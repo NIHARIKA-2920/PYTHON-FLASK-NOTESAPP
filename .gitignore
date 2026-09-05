@@ -1,0 +1,22 @@
+
+
+# for now
+.env
+*.pyc
+*.pyo
+/__pycache__/
+.vscode .DS_Store
+
+
+
+# bare minimum (to not disclose any sensitive info)
+*.db
+
+
+
+# for later (prod)
+.env
+*.log
+/build
+/dist
+/*.egg-info
